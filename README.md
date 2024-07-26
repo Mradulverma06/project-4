@@ -11,20 +11,20 @@ DiceRollHistory
 This is a key-structured data type used to keep track of dice rolls.
 
 - Fields:
-  - `rolls`: A vector of `u64` values representing the history of dice rolls.
+  - rolls: A vector of u64 values representing the history of dice rolls.
 
  Functions
 
-`rolling_v0`
+rolling_v0
 
 ```rust
 public entry fun rolling_v0(_account: signer)
 ```
 
-- **Description:** Generates a random number between 0 and 6 (exclusive). This function does not modify or access any state and is only a demonstration of randomness usage.
-- **Linting:** Unsafe randomness is allowed in this function.
+- Description:** Generates a random number between 0 and 6 (exclusive). This function does not modify or access any state and is only a demonstration of randomness usage.
+- Linting:** Unsafe randomness is allowed in this function.
   
- `roll`
+ roll
 
 ```rust
 entry fun roll(account: signer) acquires DiceRollHistory
@@ -33,7 +33,7 @@ entry fun roll(account: signer) acquires DiceRollHistory
 - Description: Rolls a dice and updates the history of rolls for the given account. If `DiceRollHistory` does not exist for the account, it is initialized. The roll result is appended to the `rolls` vector.
 - State Management: This function acquires and manages the state of DiceRollHistory for the account.
 
- `roll_v2`
+ roll_v2
 
 ```rust
 entry fun roll_v2(_account: signer) #[randomness(max_gas=56789)]
